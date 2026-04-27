@@ -1,0 +1,75 @@
+# Claude Code Instructions — {{NAME}}
+
+## Repo-identitet
+
+- **Namn:** {{NAME}}
+- **Domän:** {{DOMAIN}}
+- **Nyckelgränssnitt:** TBD (fyll i när första interface stabilt)
+- **Beroenden:** TBD (lista cross-repo-beroenden här)
+
+---
+
+## Globala regler
+
+Detta repo följer reglerna i `~/.claude/CLAUDE.md` §1–§7:
+
+| § | Rule |
+|---|---|
+| 1 | Diagnos vs. direktiv — agera inte, fråga |
+| 2 | Echo-back på session-omfattande regler |
+| 3 | Running code is read-only — kräver explicit imperativ verb |
+| 4 | Mid-session re-anchor var ~50:e tur |
+| 5 | Front-load första turen för icke-trivialt arbete |
+| 6 | Verifiera arbete innan declared done |
+| 7 | `Co-Authored-By: Claude` trailer på varje agent-skriven commit |
+
+Om du läser detta utan att ha `~/.claude/CLAUDE.md` installerad: se `docs/continuity-layer.md` i `rise-repo-bootstrap` för installation. Repot funkar utan den, men deterministisk enforcement (hooks) försvinner.
+
+---
+
+## Verifierings-konvention (repo-specifik tolkning av rule §6)
+
+{{VERIFY_WORK_SECTION}}
+
+Utan verifierings-artefakt: ingen commit. Om verifiering är omöjlig i denna miljö, säg det explicit och be användaren verifiera innan task stängs.
+
+---
+
+## Arkitekturregler
+
+TBD — fylls i när repot har en arkitektur.
+
+Mall för struktur när dags kommer:
+
+- **Dependency direction:** vilka moduler får importera vilka. (Se `agentic_workflow/swedish-space-ecosystem-v2/.claude/rules/etl.md` för ett moget exempel.)
+- **Cross-repo coupling:** vilka andra repon konsumerar detta? Vilka konsumerar detta?
+- **Schema/contract location:** om du har externa konsumenter — versionsstyr ditt API-schema.
+
+---
+
+## Kodgranskningsstandard
+
+Inherits från `~/.claude/CLAUDE.md`. Repo-specifika tillägg:
+
+- **Tester körs i CI** ({{NAME}}/.github/workflows/ci.yml). Failing CI blockerar merge.
+- **Per-task commits** (rule §10) — bundla inte orelaterade ändringar.
+- **No bloated CLAUDE.md.** Om denna fil växer förbi 200 rader, flytta innehåll till `.claude/rules/<topic>.md` (path-scoped per W2.4).
+
+---
+
+## Beroenden på andra repon
+
+TBD. Lägg till när första cross-repo-relation etableras. Format-mall:
+
+```
+- repo-name: <type, e.g. "consumer of our schema" / "provider of our embeddings">
+  - URL: https://github.com/...
+  - Coupling: <import / network / data-only>
+  - Stability commitment: <which interfaces are versioned>
+```
+
+---
+
+## Filer som måste matcha andra filer
+
+TBD. Lägg till när det blir relevant. Detta är det första stället att uppdatera om något bryts mellan repon.

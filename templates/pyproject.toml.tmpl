@@ -1,0 +1,46 @@
+[project]
+name = "{{NAME}}"
+version = "0.1.0"
+description = "{{DOMAIN}}"
+requires-python = ">=3.11"
+license = {text = "{{LICENSE_SPDX}}"}
+authors = [
+    {name = "{{COPYRIGHT_HOLDER}}"},
+]
+
+# Add runtime dependencies here. Pin upper bounds for libraries that make
+# breaking minor bumps (e.g. llama-index, pydantic). See agentic_workflow
+# rollout W1.3 for the rationale.
+dependencies = [
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.5",
+]
+
+# Opt-in observability — wire OpenTelemetry only when OTEL_EXPORTER_OTLP_ENDPOINT
+# is set. See agentic_workflow rollout W2.2 for the fail-open pattern.
+observability = [
+    "opentelemetry-api>=1.25,<2",
+    "opentelemetry-sdk>=1.25,<2",
+    "opentelemetry-exporter-otlp-proto-grpc>=1.25,<2",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+# Replace with actual package directories when they exist.
+include = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
