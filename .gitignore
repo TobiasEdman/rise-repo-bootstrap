@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node (in case templates produce Node projects later)
+node_modules/
+
+# Editor
+.vscode/
+.idea/
+
+# Test artifacts (the smoke test in CLAUDE.md drops things in /tmp, but if anyone runs it locally just in case)
+/tmp-bootstrap-smoke-*/
+test-bootstrap-*/

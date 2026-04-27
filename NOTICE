@@ -1,0 +1,9 @@
+rise-repo-bootstrap
+Copyright (c) 2026 RISE Research Institutes of Sweden AB
+
+This product includes a starter kit for new repositories developed by
+RISE Research Institutes of Sweden AB. It distills working patterns from
+the Claude Code sessions analyzed in the agentic_workflow repository.
+
+Licensed under the Apache License, Version 2.0 (the "License").
+SPDX-License-Identifier: Apache-2.0
