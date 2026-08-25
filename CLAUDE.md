@@ -62,3 +62,11 @@ Detta repo har inga produktionskonsumenter — det producerar bara nya repon. Ko
 - `templates/CLAUDE.md.tmpl` — mall som *liknar* (men inte är identisk med) detta repos CLAUDE.md. Strukturen ska följa, men de lokala detaljerna är annorlunda.
 - `LICENSE` (Apache-2.0) — ska vara byte-för-byte identisk med `templates/LICENSE-Apache-2.0`.
 - `templates/NOTICE.tmpl` — ska producera NOTICEs i samma format som detta repos NOTICE.
+
+<!-- agentic-task:coordination:start -->
+## Cross-runtime coordination mechanics
+
+Shared policy lives in `AGENTS.md`. Claude-specific hooks may enforce it but
+must not weaken or duplicate that policy. Use a Claude worktree for every
+writing session and the vendor-neutral `agentic-task` CLI for path claims.
+<!-- agentic-task:coordination:end -->
